@@ -1,6 +1,10 @@
 %head
   %title
-    Titre de l'appli
+    JOHN BLOG
 %body
-  %h1
-    Mon super blog
+  %h1 Mon super blog
+  - @articles.each do |a|
+    %h2
+      #{a["title"]}
+    %p
+      #{a["message"]}
