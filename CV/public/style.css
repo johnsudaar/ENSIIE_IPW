@@ -1,0 +1,50 @@
+.titre{
+	width:100%;
+	text-align: center;
+	font-size: 50px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+}
+
+th{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: normal;
+    border-left: solid 1px;
+}
+
+td{
+	padding-left:5px;
+	padding-right:5px;
+	border-left: solid 1px;
+	text-align: center;
+}
+
+td:first-child{
+	border-left:none !important;
+}
+
+th:first-child{
+	border-left: none !important;
+}
+
+.first{
+	display: inline-block;
+}
+.first::first-letter{
+	font-size: 75px;
+	color:red;
+}
+
+table{
+	vertical-align: middle;
+	margin: auto;
+}
+
+body{
+	height: 100%;
+	font-family: 'Quicksand', sans-serif;
+}
+
+#photo{
+	height: 50px;
+}
