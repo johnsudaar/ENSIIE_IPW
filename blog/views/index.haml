@@ -1,6 +1,11 @@
 
 - @articles.each do |a|
-  %h2
-    #{a.title}
-  %p
-    #{a.message}
+  %div.panel.panel-default
+    %div.panel-heading
+      %h3.panel-title
+        #{a.title}
+    %div.panel-body
+      #{a.summary}
+      %a(href="/article/#{a.id}")
+        %button.btn.btn-default.pull-right(type="button" href="/article/#{a.id}")
+          Lire la suite

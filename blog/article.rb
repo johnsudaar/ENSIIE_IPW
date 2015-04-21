@@ -1,7 +1,8 @@
 class Article
-  attr_reader :title, :message, :summary
+  attr_reader :title, :message, :summary, :id
 
   def initialize(id)
+    @id=id
     @message = ""
     @title = ""
     filename="articles/"+id.to_s+".txt"
@@ -18,8 +19,8 @@ class Article
         end
       end
     end # end foreach
-    @summary = @message[0,70]+" ..."
-    @message = @message.gsub(/(?:\n\r?|\r\n?)/, '<br>')
+    @summary = @message[0,500]+" ..."
+    @message = @message.gsub(/(?:\n\r?|\r\n?)/, '<br/>')
   end # enc initialize
 
   def self.getAllIds()
@@ -34,10 +35,10 @@ class Article
   def self.getArticles(first,last)
     ids = Article.getAllIds()
     articles = Array.new
-    first = first <= 0 ? 0 : first;
-    first = first >= ids.length ? ids.length - 1 : first;
-    last = last >= ids.length ? ids.length - 1 : last;
-    last = last < first ? first : last;
+    first = first <= 0 ? 0 : first
+    first = first >= ids.length ? ids.length - 1 : first
+    last = last >= ids.length ? ids.length - 1 : last
+    last = last < first ? first : last
 
     for i in first .. last
       articles.push Article.new ids[i]

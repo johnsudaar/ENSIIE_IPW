@@ -1,4 +1,6 @@
-%h2
-  #{@article.title}
-%p
-  #{@article.message}
+%div.panel.panel-default
+  %div.panel-heading
+    %h3.panel-title
+      #{@article.title}
+  %div.panel-body
+    #{@article.message}

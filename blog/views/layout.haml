@@ -4,16 +4,17 @@
     %title Mon supper blog
     %meta(charset="UTF-8")
     %link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")
-    %link(rel="stylesheet" href="/css/styles.css")
+    %link(rel="stylesheet" href="/css/style.css")
   %body
-    #wrapper
-      #header
-        %h1 Le super blog de john !
-      #content
-        =yield
-
-      #footer
-        %p
+    %nav.navbar.navbar-fixed-top.navbar-default.center-text
+      %h1.titre Le blog de John
+    %div.container#wrap
+      =yield
+    %footer.footer
+      %div.container
+        %p.text-muted.text-center
           © Jonathan HURTER 2015 - ENSIIE Strabourg
+          %a(href="https://github.com/johnsudaar/ENSIIE_IPW")
+            Télécharger le code source
     %script(src="https://code.jquery.com/jquery-2.1.3.min.js")
     %script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
