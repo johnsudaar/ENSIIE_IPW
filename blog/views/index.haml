@@ -1,3 +1,30 @@
+%nav.pages
+  %ul.pagination
+    - if @num_page <= 1
+      %li.disabled
+        %a(href="/?page=1" arial-label="Precedent")
+          %span(aria-hidden="true") &laquo;
+    - else
+      %li
+        %a(href="/?page=#{@num_page - 1}" arial-label="Precedent")
+          %span(aria-hidden="true") &laquo;
+    - for n in (1 .. @last_page)
+      - if n == @num_page
+        %li.active
+          %a(href="?page=#{n}")
+            #{n}
+      -else
+        %li
+          %a(href="?page=#{n}")
+            #{n}
+    - if @num_page >= @last_page
+      %li.disabled
+        %a(href="?page=#{@last_page}" aria-label="Suivant")
+          %span(aria-hidden="true") &raquo;
+    - else
+      %li
+        %a(href="#" aria-label="Suivant")
+          %span(aria-hidden="true") &raquo;
 
 - @articles.each do |a|
   %div.panel.panel-default
