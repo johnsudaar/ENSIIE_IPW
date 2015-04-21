@@ -23,7 +23,7 @@
           %span(aria-hidden="true") &raquo;
     - else
       %li
-        %a(href="#" aria-label="Suivant")
+        %a(href="?page=#{@num_page+1}" aria-label="Suivant")
           %span(aria-hidden="true") &raquo;
 
 - @articles.each do |a|
