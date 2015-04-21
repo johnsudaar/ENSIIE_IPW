@@ -7,12 +7,10 @@ get '/' do
   index = 0
   files = Dir.glob("articles/*.txt").sort.reverse
   files.each do |file|
-    line_num = 0
+    #line_num = 0
     content = ""
     title=""
-    text=File.open(file).read
-    text.gsub!(/\r\n?/, "\n")
-    text.each_line do |line|
+    File.foreach(file).with_index do |line, line_num|
       if line_num == 0
         title = line
       else
@@ -21,7 +19,6 @@ get '/' do
         end
         content += line
       end
-      line_num += 1
     end
     puts file
     @articles[index] = {"title"=> title, "message"=>content}
