@@ -1,0 +1,43 @@
+%h1 Listing articles
+
+- @articles.each do | article |
+  .panel.panel-default
+    .panel-heading
+      .row
+        %h3.panel-title.col-md-9
+          = article.title
+        .col-md-3
+          .text-right
+            = link_to edit_article_path(article), {:class => "btn btn-default", :type => "button", :aria => { :label => "Edit"}} do
+              %span.glyphicon.glyphicon-edit(aria-hidden="true")
+            %button.btn.btn-default(aria-label="Remove" type="button")
+              %span.glyphicon.glyphicon-remove(aria-hidden="true")
+
+    .panel-body
+      = article.body.truncate(600)
+      %button.btn.btn-default.pull-right(type="button")
+        Lire la suite
+
+
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Title
+-#       %th Body
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @articles.each do |article|
+-#       %tr
+-#         %td= article.title
+-#         %td= article.body.truncate(200)
+-#         %td= link_to 'Show', article
+-#         %td= link_to 'Edit', edit_article_path(article)
+-#         %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+= will_paginate @articles
+
+= link_to 'New Article', new_article_path
